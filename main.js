@@ -35,6 +35,12 @@ const bar = new Vue({
   },
 });
 
+Vue.component("otherlink", {
+  props: ["link", "about", "imgsrc"],
+  template:
+    '<div class="otherlink"><a v-bind:href="link"><div><img v-bind:src="imgsrc" alt=""></div></a><p>{{ about }}</p></div>',
+});
+
 const socket = io();
 let searchesexamples = [];
 socket.on("searches", (message) => {
