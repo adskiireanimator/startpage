@@ -1,0 +1,177 @@
+/*         global       */
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+main{
+    background: linear-gradient(45deg,rgb(88,148,213),#FFDC33);
+    height: 100%;
+    z-index: 0;
+}
+header{
+    display: flex;
+    z-index: 0;
+}
+
+/*            \global    */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*            header     */
+
+#datenav{
+    font-size: 40px;
+    width: 15%;
+    margin-left: 10%;
+}
+.links{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    margin-left: 10%;
+    width: 30%;
+    height: 12%;
+    background-color: white;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+.headerlink{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.headerlink a{
+    color: black;
+    text-decoration: none;
+}
+.headerlink a:hover{
+    border-bottom: 2px solid black;
+}
+.header_ul{
+    padding-top: 1%;
+    display: flex;
+}
+
+/*            \header     */
+/*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*             sightmenu  */
+
+
+.menuBurger {
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: 2%;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+.menuBurger:hover{
+    opacity: 0.7;
+}
+
+.otherlinks{
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    margin-left: auto;
+    left: auto;
+    right: 92px;
+    top: 10px;
+    width: 280px;
+    height: 100px;
+    background-color: white;
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 50%);
+}
+.otherlinks .otherlink{
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+    height: 50px;
+    width: 50px;
+}
+.otherlinks p{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 3px;
+}
+.otherlink:hover{
+    opacity: 0.7;
+}
+
+/*            \sightmenu             */
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/*             searchbar and links   */
+
+#searchbar{
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+}
+#diver{
+    width: 67%;
+    margin-top: 5%;
+    background-color:#DAF0FB;
+    color: black;
+}
+#kostya{
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+
+}
+.search{
+    height: 35px;
+    width: 100%;
+    color: black;
+    
+}
+.searcheslink{
+    text-decoration: none;
+}
+.searchbar{
+    width: 67%;
+    border-radius:4px;
+}
+.buttonsearch{
+    margin-left: 3%;
+    width: 27%;
+    padding-left:auto;
+    text-align: left;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.searches{
+    width: 100%;
+    border-radius:4px;
+}
+.search:hover{
+    border-bottom: 2px solid black;
+    cursor: pointer;
+    opacity: 0.7;
+}
+/*             /searchbar and links   */

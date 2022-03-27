@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./main.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+        <meta charset="UTF-8">
+        <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+        <div id="datenav">
+            {{ hours }}:{{ minutes }}/{{ seconds }}
+        </div>
+        <div class="links">
+            <ul class="header_ul">
+                <li class="headerlink"><a href="https://vk.com">Vk</a></li>
+                <li class="headerlink"><a href="https://youtube.com">Youtube</a></li>
+                <li class="headerlink"><a href="https://kpolyakov.spb.ru/school/ege.htm">Polyakov</a></li>
+            </ul>
+        </div>
+        <div class="menuBurger" onclick="show()"><img src="./img/hamburger-256.png" alt=""></div>
+        </header>
+        <div class="otherlinks" id="otherlinks" v-if="activeseen">
+            <div class="otherlink">
+                <a href="https://mail.google.com/mail/u/0/#inbox"><div><img src="./img/gmail.png" alt=""></div></a>
+                <p>Почта</p>
+            </div>
+            <div class="otherlink">
+                <a href="https://developer.mozilla.org/ru/docs/Web/CSS"><div><img src="./img/firefox.png" alt=""></div></a>
+                <p>CSS</p>
+            </div>
+            <div class="otherlink">
+                <a href="https://school.mos.ru/"><div><img src="./img/daily.png" alt=""></div></a>
+                <p>Дневник</p>
+            </div>
+        </div>
+        <main>
+            <div id="kostya">
+                <div id="searchbar">
+                    <input type="text" v-bind:placeholder="startmsg" v-model="message" class="searchbar" v-on:keyup.enter="arrive" id="inputbar">
+                    <div class="buttonsearch" v-on:click="arrive">Найти</div>
+                </div>
+                <div id="diver" v-if="seensearches" v-bind:style="{ height:height+'px' }">
+                        <div class="searches">
+                            <a v-bind:href="link.link" class="searcheslink" v-for="link in searches"><div class="search">{{ link["name"] }}</div></a>
+                        </div>
+                </div>
+            </div>
+        </main>
+        <script src="./main.js"></script>
+    </body>
+</html>
