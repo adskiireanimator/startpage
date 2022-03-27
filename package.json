@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node index"
+    "test": "node index",
+    "githubinit":"git remote add origin https://github.com/adskiireanimator/startpage.git",
+    "githubpush":"git push"
   },
   "author": "",
   "license": "ISC",
