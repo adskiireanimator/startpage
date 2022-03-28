@@ -21,12 +21,7 @@
         <div class="menuBurger" onclick="show()"><img src="./img/hamburger-256.png" alt=""></div>
         </header>
         <div class="otherlinks" id="otherlinks" v-if="activeseen">
-            <otherlink about="Почта" link="https://mail.google.com/mail/u/0/#inbox" imgsrc="./img/gmail.png"></otherlink>
-            <otherlink about="CSS" link="https://developer.mozilla.org/ru/docs/Web/CSS" imgsrc="./img/firefox.png"></otherlink>
-            <otherlink about="Дневник" link="https://google.com" imgsrc="./img/daily.png"></otherlink>
-            <otherlink about="Презы" link="https://docs.google.com/presentation/u/0/" imgsrc="./img/googlepres.png"></otherlink>
-            <otherlink link="https://www.iconfinder.com/" imgsrc="./img/iconfinder.png" about="Иконки"></otherlink>
-            <otherlink imgsrc="./img/github.png" about="Github" link="https://github.com/adskiireanimator"></otherlink>
+            <otherlink v-for="link in otherlink" v-bind:link="link.link" v-bind:imgsrc="link.imgsrc" v-bind:about="link.about" v-bind:key="link.id"></otherlink>
         </div>
         <main>
             <div id="kostya">

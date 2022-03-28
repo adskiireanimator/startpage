@@ -12,6 +12,39 @@ const otherlinks = new Vue({
   el: "#otherlinks",
   data: {
     activeseen: false,
+    otherlink: [
+      {
+        about: "Почта",
+        link: "https://mail.google.com/mail/u/0/#inbox",
+        imgsrc: "./img/gmail.png",
+      },
+      {
+        about: "CSS",
+        link: "https://developer.mozilla.org/ru/docs/Web/CSS",
+        imgsrc: "./img/firefox.png",
+      },
+      {
+        about: "Дневник",
+        link: "https://school.mos.ru/",
+        imgsrc: "./img/daily.png",
+      },
+      {
+        about: "Презы",
+        link: "https://docs.google.com/presentation/u/0/",
+        imgsrc: "./img/googlepres.png",
+      },
+      {
+        about: "Иконки",
+        link: "https://www.iconfinder.com/",
+        imgsrc: "./img/iconfinder.png",
+      },
+      {
+        about: "Github",
+        link: "https://github.com/adskiireanimator",
+        imgsrc: "./img/github.png",
+      },
+    ],
+    aaa: "aaa",
   },
 });
 
@@ -60,7 +93,6 @@ window.onload = () => {
     function finder(text) {
       let newarr = [];
       let counter = 0;
-      console.log(searchesexamples);
       for (let find in searchesexamples) {
         let flag = true;
         for (let i = 0; i < text.length; i++) {
