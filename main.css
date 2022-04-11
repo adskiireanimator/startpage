@@ -98,7 +98,6 @@ header{
 .otherlinks .otherlink{
     margin: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     height: 50px;
     width: 50px;
 }
@@ -145,7 +144,7 @@ header{
     height: 35px;
     width: 100%;
     color: black;
-    
+
 }
 .searcheslink{
     text-decoration: none;
