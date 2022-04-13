@@ -1,5 +1,4 @@
 const express = require("express");
-
 const app = express();
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
@@ -11,7 +10,9 @@ const searchesexamples = [];
 io.on("connection", (socket) => {
   socket.emit("searches", searchesexamples);
   socket.on("arrive", (msg) => {
-    searchesexamples.push(msg);
+    if(searchesexamples.find((i)=>i===msg) == undefined){
+      searchesexamples.push(msg)
+    }
   });
 });
 
