@@ -7,6 +7,7 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 body{
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -18,7 +19,7 @@ li{
     list-style-type: none;
 }
 main{
-    background: linear-gradient(45deg,rgb(88,148,213),#FFDC33);
+    background: linear-gradient(45deg,rgb(	0, 87, 184),rgb(255, 215, 0));
     height: 100%;
     z-index: 0;
 }
@@ -52,16 +53,20 @@ header{
     margin-right: 15px;
 }
 .headerlink a{
+    transition: border-bottom 0.2s ;
     color: black;
     text-decoration: none;
+    border-bottom: 0px solid black;
 }
 .headerlink a:hover{
-    border-bottom: 2px solid black;
+
+    border-bottom: 3px solid black;
 }
 .header_ul{
     padding-top: 1%;
     display: flex;
 }
+
 
 /*            \header     */
 /*|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
@@ -119,6 +124,7 @@ header{
     margin-top: 5%;
     width: 100%;
     display: flex;
+    
 }
 #diver{
     width: 67%;
@@ -127,9 +133,9 @@ header{
     color: black;
 }
 #kostya{
-    margin-left: 30%;
-    margin-right: 30%;
-    width: 40%;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
     height: 550px;
     margin-left: auto;
     margin-right: auto;
@@ -152,6 +158,7 @@ header{
 .searchbar{
     width: 67%;
     border-radius:4px;
+    border:none;
 }
 .buttonsearch{
     margin-left: 3%;
@@ -164,6 +171,10 @@ header{
     text-align: center;
     border-radius: 4px;
     text-decoration: none;
+}
+.buttonsearch:hover{
+    box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+
 }
 .searches{
     width: 100%;

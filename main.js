@@ -61,8 +61,8 @@ const bar = new Vue({
   },
   methods: {
     arrive: function () {
-      socket.emit("arrive", this.message);
-      searchesexamples.push(this.message);
+      socket.emit("arrive", spacechecker(this.message));
+      searchesexamples.push(spacechecker(this.message));
       window.location.href = `https://www.google.com/search?q=${this.message}`;
     },
   },
@@ -72,6 +72,11 @@ Vue.component("otherlink", {
   props: ["link", "about", "imgsrc"],
   template:
     '<div class="otherlink"><a v-bind:href="link"><div><img v-bind:src="imgsrc" alt=""></div></a><p>{{ about }}</p></div>',
+});
+
+Vue.component("globallink",{
+  props:["href","name"],
+  template:'<li class="headerlink"><a v-bind:href="href">{{ name }}</a></li>',
 });
 
 const socket = io();
@@ -94,10 +99,14 @@ window.onload = () => {
       let newarr = [];
       let counter = 0;
       for (let find in searchesexamples) {
-        let flag = true;
+        let flag = false;
         for (let i = 0; i < text.length; i++) {
-          if (text[i] != searchesexamples[find][i]) {
-            flag = false;
+          if (text[i] == searchesexamples[find][i]) {
+            flag = true;
+          }
+          else{
+            flag=false;
+            break;
           }
         }
         if (flag) {
@@ -111,10 +120,12 @@ window.onload = () => {
           }
         }
       }
+      console.log(text.length)
+      console.log(newarr[0])
       return newarr;
     }
 
-    this.searches = finder(newValue);
+    this.searches = finder(spacechecker(newValue));
     if (this.searches.length === 0) {
       this.searches = [{ name: "походу ничего не нашлось" }];
     }
@@ -131,9 +142,21 @@ window.onload = () => {
 };
 
 function show() {
-  if (otherlinks.activeseen) {
-    otherlinks.activeseen = false;
-  } else {
-    otherlinks.activeseen = true;
+  otherlinks.activeseen=!otherlinks.activeseen
+}
+function spacechecker(search){
+  let flag = false;
+  let realsearch = "";
+  for(let sym of search){
+    if(flag){
+      realsearch+=sym;
+    }
+    if (sym!=' '){
+      if(!flag){
+        realsearch=sym;
+      }
+      flag=true;
+    }
   }
+  return realsearch
 }

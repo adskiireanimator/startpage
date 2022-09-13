@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "node index",
-    "githubinit":"git remote add origin https://github.com/adskiireanimator/startpage.git",
-    "githubpush":"git push"
+    "githubinit": "git remote add origin https://github.com/adskiireanimator/startpage.git",
+    "githubpush": "git push"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "easyvk": "^2.8.2",
     "express": "^4.17.3",
     "socket.io": "^4.4.1"
   }

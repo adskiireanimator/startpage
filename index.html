@@ -1,41 +1,52 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="./main.css">
-        <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-        <meta charset="UTF-8">
-        <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Condensed&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
+
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <meta charset="UTF-8">
+    <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Condensed&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
         <div id="datenav">
             {{ hours }}:{{ minutes }}/{{ seconds }}
         </div>
         <div class="links">
             <ul class="header_ul">
+                <globallink href="https://vk.com" name="Vk"></globallink>
                 <li class="headerlink"><a href="https://vk.com">Vk</a></li>
                 <li class="headerlink"><a href="https://youtube.com">YouTube</a></li>
-                <li class="headerlink"><a href="https://kpolyakov.spb.ru/school/ege.htm">Polyakov</a></li>
+
+                <li class="headerlink"><a href="https://learn.javascript.ru/">JS'кa</a></li>
+                <li class="headerlink"><a href="https://ru.vuejs.org/v2/guide/index.html">Вьюшка</a></li>
             </ul>
         </div>
         <div class="menuBurger" onclick="show()"><img src="./img/hamburger-256.png" alt=""></div>
-        </header>
-        <div class="otherlinks" id="otherlinks" v-if="activeseen">
-            <otherlink v-for="link in otherlink" v-bind:link="link.link" v-bind:imgsrc="link.imgsrc" v-bind:about="link.about" v-bind:key="link.id"></otherlink>
-        </div>
-        <main>
-            <div id="kostya">
-                <div id="searchbar">
-                    <input type="text" v-bind:placeholder="startmsg" v-model="message" class="searchbar" v-on:keyup.enter="arrive" id="inputbar">
-                    <div class="buttonsearch" v-on:click="arrive">Найти</div>
-                </div>
-                <div id="diver" v-if="seensearches" v-bind:style="{ height:height+'px' }">
-                        <div class="searches">
-                            <a v-bind:href="link.link" class="searcheslink" v-for="link in searches"><div class="search">{{ link["name"] }}</div></a>
-                        </div>
+    </header>
+    <div class="otherlinks" id="otherlinks" v-if="activeseen">
+        <otherlink v-for="link in otherlink" v-bind:link="link.link" v-bind:imgsrc="link.imgsrc"
+            v-bind:about="link.about" v-bind:key="link.id"></otherlink>
+    </div>
+    <main>
+        <div id="kostya">
+            <div id="searchbar">
+                <input type="text" v-bind:placeholder="startmsg" v-model="message" class="searchbar"
+                    v-on:keyup.enter="arrive" id="inputbar">
+                <div class="buttonsearch" v-on:click="arrive">Найти</div>
+            </div>
+            <div id="diver" v-if="seensearches" v-bind:style="{ height:height+'px' }">
+                <div class="searches">
+                    <a v-bind:href="link.link" class="searcheslink" v-for="link in searches">
+                        <div class="search">{{ link["name"] }}</div>
+                    </a>
                 </div>
             </div>
-        </main>
-        <script src="./main.js"></script>
-    </body>
+        </div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+
 </html>
