@@ -1,3 +1,4 @@
+
 const date = new Vue({
   el: "#datenav",
   data: {
@@ -51,7 +52,7 @@ const otherlinks = new Vue({
 const bar = new Vue({
   el: "#kostya",
   data: {
-    startmsg: "  Привет всем друзьям",
+    startmsg: "Привет всем друзьям",
     message: "",
     messages: "",
     seensearches: false,
@@ -65,13 +66,20 @@ const bar = new Vue({
       searchesexamples.push(spacechecker(this.message));
       window.location.href = `https://www.google.com/search?q=${this.message}`;
     },
+    upsearch:function(){
+      console.log("up");
+    },
+    downsearch:function(){
+      console.log("down");
+    },
+    
   },
 });
 
 Vue.component("otherlink", {
   props: ["link", "about", "imgsrc"],
   template:
-    '<div class="otherlink"><a v-bind:href="link"><div><img v-bind:src="imgsrc" alt=""></div></a><p>{{ about }}</p></div>',
+    '<a v-bind:href="link"><div class="otherlink"><div><img v-bind:src="imgsrc" alt=""></div><p>{{ about }}</p></div></a>',
 });
 
 Vue.component("globallink",{
@@ -120,8 +128,6 @@ window.onload = () => {
           }
         }
       }
-      console.log(text.length)
-      console.log(newarr[0])
       return newarr;
     }
 
@@ -140,7 +146,6 @@ window.onload = () => {
     this.buttonsearch = `https://www.google.com/search?q=${newValue}`;
   });
 };
-
 function show() {
   otherlinks.activeseen=!otherlinks.activeseen
 }

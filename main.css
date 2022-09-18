@@ -93,8 +93,8 @@ header{
     left: auto;
     right: 92px;
     top: 10px;
-    width: 280px;
-    height: 200px;
+    width: 270px;
+    height: 180px;
     background-color: white;
     z-index: 1;
     border-radius: 8px;
@@ -112,7 +112,7 @@ header{
     margin-bottom: 20px;
     margin-top: 3px;
 }
-.otherlink:hover{
+.otherlinks a:hover{
     opacity: 0.7;
 }
 
@@ -128,6 +128,7 @@ header{
 }
 #diver{
     width: 67%;
+    max-height: 350px;
     margin-top: 5%;
     background-color:#DAF0FB;
     color: black;
@@ -148,14 +149,23 @@ header{
 }
 .search{
     height: 35px;
+}
+.commonsearch{
     width: 100%;
     color: black;
-
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.commonsearch p{
+    
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .searcheslink{
     text-decoration: none;
 }
 .searchbar{
+    padding-left: 5px;
     width: 67%;
     border-radius:4px;
     border:none;
@@ -184,5 +194,8 @@ header{
     border-bottom: 2px solid black;
     cursor: pointer;
     opacity: 0.7;
+}
+.activesearch{
+    height: 70px;
 }
 /*             /searchbar and links   */
