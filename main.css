@@ -21,7 +21,6 @@ li{
 main{
     background: linear-gradient(45deg,rgb(	0, 87, 184),rgb(255, 215, 0));
     height: 100%;
-    z-index: 0;
 }
 header{
     display: flex;
@@ -74,12 +73,13 @@ header{
 
 
 .menuBurger {
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 2%;
+    left: auto;
+    top: 3%;
+    bottom: auto;
+    right: 1%;
     cursor: pointer;
     padding-bottom: 5px;
+    position: absolute;
 }
 .menuBurger:hover{
     opacity: 0.7;
@@ -114,6 +114,9 @@ header{
 }
 .otherlinks a:hover{
     opacity: 0.7;
+}
+.seen{
+    display: none;
 }
 
 /*            \sightmenu             */
@@ -153,13 +156,12 @@ header{
 .commonsearch{
     width: 100%;
     color: black;
-    margin-top: auto;
-    margin-bottom: auto;
+    position: relative;
 }
 .commonsearch p{
-    
-    margin-top: auto;
-    margin-bottom: auto;
+    position: absolute;        
+    top: 50%;                         
+    transform: translate(0, -50%)
 }
 .searcheslink{
     text-decoration: none;

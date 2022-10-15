@@ -2,7 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="./main.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <meta charset="UTF-8">
     <script src="/node_modules/socket.io/client-dist/socket.io.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Condensed&display=swap"
@@ -19,17 +19,18 @@
                 <globallink href="https://vk.com" name="Vk"></globallink>
                 <li class="headerlink"><a href="https://vk.com">Vk</a></li>
                 <li class="headerlink"><a href="https://youtube.com">YouTube</a></li>
-
                 <li class="headerlink"><a href="https://learn.javascript.ru/">JS'кa</a></li>
                 <li class="headerlink"><a href="https://ru.vuejs.org/v2/guide/index.html">Вьюшка</a></li>
             </ul>
         </div>
-        <div class="menuBurger" onclick="show()"><img src="./img/hamburger-256.png" alt=""></div>
+        <div id="menuburger">
+            <div class="menuBurger" v-on:click="burgerClicked"><img src="./img/hamburger-256.png" alt=""></div>
+            <div class="otherlinks" v-bind:class="{ 'seen': !isActive }" id="otherlinks">
+                <otherlink v-for="link in links" v-bind:link="link.link" v-bind:imgsrc="link.imgsrc"
+                    v-bind:about="link.about" v-bind:key="link.id"></otherlink>
+            </div>
+        </div>
     </header>
-    <div class="otherlinks" id="otherlinks" v-if="activeseen">
-        <otherlink v-for="link in otherlink" v-bind:link="link.link" v-bind:imgsrc="link.imgsrc"
-            v-bind:about="link.about" v-bind:key="link.id"></otherlink>
-    </div>
     <main>
         <div id="kostya">
             <div id="searchbar">
