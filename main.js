@@ -1,4 +1,7 @@
 const socket = io();
+
+
+
 const date= Vue.createApp({
   data(){
     return{
@@ -23,8 +26,8 @@ const date= Vue.createApp({
     this.nowdate()
   },
 });
-date.mount("#datenav");
 
+date.mount("#datenav");
 
 
 const burgerlinks= Vue.createApp({
@@ -68,17 +71,21 @@ const searchbar = Vue.createApp({
   },
   methods:{
     upsearch(){
-
+      if(this.index!=0){
+        this.index=this.index-1;
+      }
     },
 
     downsearch(){
-
+      if(this.index!=this.memorysearches.length-1){
+        this.index=this.index+1;
+      }
     },
 
     arrive(){
-      socket.emit("arrive", this.spacechecker(this.message));
-      this.memorysearches.push(this.spacechecker(this.message));
-      window.location.href = `https://www.google.com/search?q=${this.spacechecker(this.message)}`;
+      socket.emit("arrive", this.memorysearches[this.index].name);
+      this.memorysearches.push(this.memorysearches[this.index].name);
+      window.location.href = `https://www.google.com/search?q=${this.memorysearches[this.index].name}`;
     },
     async loadsearches(){
       await socket.on("searches", (message) => {
@@ -103,33 +110,36 @@ const searchbar = Vue.createApp({
     return realsearch
     },
     finder(text){
-      let newarr = [];
-        let counter = 0;
-        for (let find in this.memorysearches) {
-          let flag = false;
-          for (let i = 0; i < text.length; i++) {
-            if (text[i] == this.memorysearches[find][i]) {
-              flag = true;
-            }
-            else{
-              flag=false;
-              break;
-            }
+      this.loadsearches();
+      let newarr = [{
+        name: text,
+        link: `https://www.google.com/search?q=${text}`,
+      }];
+      let counter = 0;
+      for (let find in this.memorysearches) {
+        let flag = false;
+        for (let i = 0; i < text.length; i++) {
+          if (text[i] == this.memorysearches[find][i]) {
+            flag = true;
           }
-          if (flag) {
-            newarr.push({
-              name: this.memorysearches[find],
-              link: `https://www.google.com/search?q=${this.memorysearches[find]}`,
-            });
-            counter += 1;
-            if (counter >= 3) {
-              break;
-            }
+          else{
+            flag=false;
+            break;
           }
         }
-        return newarr;
+        if (flag) {
+          newarr.push({
+            name: this.memorysearches[find],
+            link: `https://www.google.com/search?q=${this.memorysearches[find]}`,
+          });
+          counter += 1;
+          if (counter >= 6) {
+            break;
+          }
+        }
+      }
+      return newarr;
     }
-
   },
   created(){
     this.loadsearches()
@@ -138,7 +148,8 @@ const searchbar = Vue.createApp({
   watch:{
     message(newValue,oldValue){
       this.memorysearches=this.finder(this.spacechecker(newValue));
-
+      console.log(this.memorysearches);
+      console.log(this.message);
       if (this.memorysearches.length === 0) {
         this.memorysearches = [{ name: "походу ничего не нашлось" }];
       };

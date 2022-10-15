@@ -42,8 +42,8 @@
 
             <div id="diver" v-if="seensearches">
                 <div class="searches">
-                    <a v-bind:href="link.link" class="searcheslink" v-for="link in memorysearches">
-                        <div class="search commonsearch">
+                    <a v-bind:href="link.link" class="searcheslink" v-for="(link,indexsearch) in memorysearches">
+                        <div class="search commonsearch" v-bind:class="{activesearch:(index==indexsearch)}">
                             <p>{{ link["name"] }}</p>
                         </div>
                     </a>
