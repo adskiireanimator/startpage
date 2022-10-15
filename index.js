@@ -38,7 +38,7 @@ const otherlinks=[{
 
 const port = process.env.port || 5050;
 
-const searchesexamples = ['resad'];
+const searchesexamples = [];
 
 io.on("connection", (socket) => {
   socket.emit("searches", searchesexamples);

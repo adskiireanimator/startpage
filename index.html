@@ -33,20 +33,23 @@
     </header>
     <main>
         <div id="kostya">
+
             <div id="searchbar">
                 <input type="text" v-bind:placeholder="startmsg" v-model="message" class="searchbar"
                     v-on:keyup.enter="arrive" v-on:keyup.up="upsearch" v-on:keyup.down="downsearch" id="inputbar">
                 <div class="buttonsearch" v-on:click="arrive">Найти</div>
             </div>
+
             <div id="diver" v-if="seensearches">
                 <div class="searches">
-                    <a v-bind:href="link.link" class="searcheslink" v-for="link in searches">
+                    <a v-bind:href="link.link" class="searcheslink" v-for="link in memorysearches">
                         <div class="search commonsearch">
                             <p>{{ link["name"] }}</p>
                         </div>
                     </a>
                 </div>
             </div>
+
         </div>
     </main>
     <script src="./main.js"></script>
